@@ -1,0 +1,37 @@
+use task5_db;
+
+CREATE TABLE users (
+    user_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    balance DECIMAL(10,2)
+);
+
+CREATE TABLE merchants (
+    merchant_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    balance DECIMAL(10,2)
+);
+INSERT INTO users VALUES (1, 'Charan', 5000.00);
+INSERT INTO merchants VALUES (101, 'Amazon Store', 10000.00);
+START TRANSACTION;
+
+
+UPDATE users
+SET balance = balance - 1000
+WHERE user_id = 1;
+
+
+UPDATE merchants
+SET balance = balance + 1000
+WHERE merchant_id = 101;
+
+COMMIT;
+START TRANSACTION;
+
+UPDATE users
+SET balance = balance - 6000
+WHERE user_id = 1 AND balance >= 6000;
+
+
+
+ROLLBACK;

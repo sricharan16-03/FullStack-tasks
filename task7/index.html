@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Customer Feedback Form</h2>
+
+        <form id="feedbackForm">
+            
+            <label>Name:</label>
+            <input type="text" id="name" 
+                   onkeyup="validateName()" 
+                   onmouseover="highlight(this)" 
+                   onmouseout="removeHighlight(this)">
+            <span id="nameError" class="error"></span>
+
+            <label>Email:</label>
+            <input type="text" id="email" 
+                   onkeyup="validateEmail()" 
+                   onmouseover="highlight(this)" 
+                   onmouseout="removeHighlight(this)">
+            <span id="emailError" class="error"></span>
+
+            <label>Feedback:</label>
+            <textarea id="feedback" 
+                      onkeyup="validateFeedback()" 
+                      onmouseover="highlight(this)" 
+                      onmouseout="removeHighlight(this)"></textarea>
+            <span id="feedbackError" class="error"></span>
+
+            <button type="button" ondblclick="submitForm()">Submit</button>
+
+        </form>
+
+        <p id="successMessage" class="success"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
